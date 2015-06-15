@@ -166,7 +166,9 @@ namespace OpenMetaverse
             /// <summary>Include Adult land in results. This flag is used when searching both the Groups, Events and Land sales databases</summary>
             IncludeAdult = 1 << 26,
             /// <summary></summary>
-            AdultOnly = 1 << 27
+            AdultOnly = 1 << 27,
+            IncludeTeen,
+            IncludeEducational
         }
 
         /// <summary>
