@@ -1495,12 +1495,12 @@
             <summary>
             Sets agents maturity access level
             </summary>
-            <param name="access">PG, M or A</param></member>
+            <param name="access">T, PG, M, A or E</param></member>
         <member name="M:OpenMetaverse.AgentManager.SetAgentAccess(System.String,OpenMetaverse.AgentManager.AgentAccessCallback)">
             <summary>
             Sets agents maturity access level
             </summary>
-            <param name="access">PG, M or A</param>
+            <param name="access">T, PG, M, A or E</param>
             <param name="callback">Callback function</param></member>
         <member name="M:OpenMetaverse.AgentManager.InstantMessageHandler(System.Object,OpenMetaverse.PacketReceivedEventArgs)">
             <summary>
@@ -1936,7 +1936,7 @@
             <summary></summary></member>
         <member name="T:OpenMetaverse.AgentAccessEventArgs">
             <summary>
-            Class for sending info on the success of the opration
+            Class for sending info on the success of the operation
             of setting the maturity access level
             </summary></member>
         <member name="P:OpenMetaverse.AgentAccessEventArgs.NewLevel">
@@ -5235,7 +5235,7 @@
             <example>
             <code>
             // request all mainland, any maturity rating that is larger than 512 sq.m
-            StartLandSearch(DirFindFlags.SortAsc | DirFindFlags.PerMeterSort | DirFindFlags.LimitByArea | DirFindFlags.IncludePG | DirFindFlags.IncludeMature | DirFindFlags.IncludeAdult, SearchTypeFlags.Mainland, 0, 512, 0);
+            StartLandSearch(DirFindFlags.SortAsc | DirFindFlags.PerMeterSort | DirFindFlags.LimitByArea | DirFindFlags.IncludeTeen | DirFindFlags.IncludePG | DirFindFlags.IncludeMature | DirFindFlags.IncludeAdult | DirFindFlags.Educational, SearchTypeFlags.Mainland, 0, 512, 0);
             </code></example></member>
         <member name="M:OpenMetaverse.DirectoryManager.StartGroupSearch(System.String,System.Int32)">
             <summary>
