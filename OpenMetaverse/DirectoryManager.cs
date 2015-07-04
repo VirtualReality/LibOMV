@@ -166,9 +166,7 @@ namespace OpenMetaverse
             /// <summary>Include Adult land in results. This flag is used when searching both the Groups, Events and Land sales databases</summary>
             IncludeAdult = 1 << 26,
             /// <summary></summary>
-            AdultOnly = 1 << 27,
-            IncludeTeen,
-            IncludeEducational
+            AdultOnly = 1 << 27
         }
 
         /// <summary>
@@ -797,8 +795,8 @@ namespace OpenMetaverse
         /// <returns>A UUID to correlate the results when the <see cref="OnDirPlacesReply"/> event is raised</returns>
         public UUID StartDirPlacesSearch(string searchText, int queryStart)
         {
-            return StartDirPlacesSearch(searchText, DirFindFlags.DwellSort | DirFindFlags.IncludeTeen | DirFindFlags.IncludePG | DirFindFlags.IncludeMature
-                | DirFindFlags.IncludeAdult | DirFindFlags.IncludeEducational, ParcelCategory.Any, queryStart);
+            return StartDirPlacesSearch(searchText, DirFindFlags.DwellSort | DirFindFlags.IncludePG | DirFindFlags.IncludeMature
+                | DirFindFlags.IncludeAdult, ParcelCategory.Any, queryStart);
         }
 
         /// <summary>

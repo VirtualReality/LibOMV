@@ -3421,7 +3421,7 @@ namespace OpenMetaverse
             }
             catch (Exception ex)
             {
-                Logger.Log("Failed to update agent language", Helpers.LogLevel.Error, Client, ex);
+                Logger.Log("Failes to update agent language", Helpers.LogLevel.Error, Client, ex);
             }
         }
 

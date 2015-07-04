@@ -134,10 +134,6 @@ namespace OpenMetaverse
         Trial = 7,
         /// <summary>PG rating</summary>
         PG = 13,
-        /// <summary>Teen rating</summary>
-        Teen = 15,
-        /// <summary>Educational</summary>
-        Educational = 17,
         /// <summary>Mature rating</summary>
         Mature = 21,
         /// <summary>Adult rating</summary>
@@ -145,7 +141,7 @@ namespace OpenMetaverse
         /// <summary>Simulator is offline</summary>
         Down = 254,
         /// <summary>Simulator does not exist</summary>
-        NonExistent = 255,
+        NonExistent = 255
     }
 
     #endregion Enums
