@@ -320,7 +320,10 @@ namespace OpenMetaverse.StructuredData
                     osd = ParseLLSDBinaryMap(stream);
                     break;
                 default:
-                    throw new OSDException("Binary LLSD parsing: Unknown type marker.");
+                    //throw new OSDException("Binary LLSD parsing: Unknown type marker.");
+                    Console.WriteLine("Binary LLSD parsing: Unknown type marker: " + marker);
+                    osd = null;
+                    break;
 
             }
             return osd;
