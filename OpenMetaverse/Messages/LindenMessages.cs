@@ -3880,7 +3880,7 @@ namespace OpenMetaverse.Messages.Linden
                 queryDataMap["SimName"] = OSD.FromString(QueryDataBlocks[i].SimName);
                 queryDataMap["SnapshotID"] = OSD.FromUUID(QueryDataBlocks[i].SnapShotID);
                 queryDataMap["ProductSKU"] = OSD.FromString(QueryDataBlocks[i].ProductSku);
-                queryDataMap["Price"] = OSD.FromInteger(QueryDataBlocks[i].Price);
+                queryDataMap["Price"] = OSD.FromInteger(QueryDataBlocks[i].Price);                
                 dataBlocksArray.Add(queryDataMap);
             }
 
@@ -3928,7 +3928,7 @@ namespace OpenMetaverse.Messages.Linden
                 data.SimName = dataMap["SimName"].AsString();
                 data.SnapShotID = dataMap["SnapshotID"].AsUUID();
                 data.ProductSku = dataMap["ProductSKU"].AsString();
-                data.Price = dataMap["Price"].AsInteger();
+                data.Price = dataMap["Price"].AsInteger();                
                 QueryDataBlocks[i] = data;
             }
 
