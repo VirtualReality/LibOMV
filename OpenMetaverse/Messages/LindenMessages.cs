@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (c) 2006-2014, openmetaverse.org
+ * Copyright (c) 2006-2016, openmetaverse.co
  * All rights reserved.
  *
  * - Redistribution and use in source and binary forms, with or without 
@@ -7,7 +7,7 @@
  *
  * - Redistributions of source code must retain the above copyright notice, this
  *   list of conditions and the following disclaimer.
- * - Neither the name of the openmetaverse.org nor the names 
+ * - Neither the name of the openmetaverse.co nor the names 
  *   of its contributors may be used to endorse or promote products derived from
  *   this software without specific prior written permission.
  *
@@ -30,7 +30,7 @@ using System.IO;
 using System.Net;
 using OpenMetaverse.Interfaces;
 using OpenMetaverse.StructuredData;
-using ZLib.Net;
+using ZLibNet;
 
 namespace OpenMetaverse.Messages.Linden
 {
@@ -1352,7 +1352,7 @@ namespace OpenMetaverse.Messages.Linden
             public UUID FolderID;
             public UUID ParentID;
             public string Name;
-            public AssetType Type;
+            public FolderType Type;
 
             public static FolderDataInfo FromOSD(OSD data)
             {
@@ -1365,7 +1365,7 @@ namespace OpenMetaverse.Messages.Linden
                 ret.FolderID = map["FolderID"];
                 ret.ParentID = map["ParentID"];
                 ret.Name = map["Name"];
-                ret.Type = (AssetType)map["Type"].AsInteger();
+                ret.Type = (FolderType)map["Type"].AsInteger();
                 return ret;
             }
         }
@@ -3877,10 +3877,10 @@ namespace OpenMetaverse.Messages.Linden
                 queryDataMap["GlobalZ"] = OSD.FromReal(QueryDataBlocks[i].GlobalZ);
                 queryDataMap["Name"] = OSD.FromString(QueryDataBlocks[i].Name);
                 queryDataMap["OwnerID"] = OSD.FromUUID(QueryDataBlocks[i].OwnerID);
-                queryDataMap["Price"] = OSD.FromInteger(QueryDataBlocks[i].Price);
                 queryDataMap["SimName"] = OSD.FromString(QueryDataBlocks[i].SimName);
                 queryDataMap["SnapshotID"] = OSD.FromUUID(QueryDataBlocks[i].SnapShotID);
                 queryDataMap["ProductSKU"] = OSD.FromString(QueryDataBlocks[i].ProductSku);
+                queryDataMap["Price"] = OSD.FromInteger(QueryDataBlocks[i].Price);                
                 dataBlocksArray.Add(queryDataMap);
             }
 
@@ -3925,10 +3925,10 @@ namespace OpenMetaverse.Messages.Linden
                 data.GlobalZ = (float)dataMap["GlobalZ"].AsReal();
                 data.Name = dataMap["Name"].AsString();
                 data.OwnerID = dataMap["OwnerID"].AsUUID();
-                data.Price = dataMap["Price"].AsInteger();
                 data.SimName = dataMap["SimName"].AsString();
                 data.SnapShotID = dataMap["SnapshotID"].AsUUID();
                 data.ProductSku = dataMap["ProductSKU"].AsString();
+                data.Price = dataMap["Price"].AsInteger();                
                 QueryDataBlocks[i] = data;
             }
 
@@ -4376,7 +4376,6 @@ namespace OpenMetaverse.Messages.Linden
 
             ret["ObjectData"] = array;
             return ret;
-
         }
 
         /// <summary>
@@ -4405,7 +4404,7 @@ namespace OpenMetaverse.Messages.Linden
     public class RenderMaterialsMessage : IMessage
     {
         public OSD MaterialData;
-		
+
         /// <summary>
         /// Deserializes the message
         /// </summary>
@@ -4439,17 +4438,17 @@ namespace OpenMetaverse.Messages.Linden
                 MaterialData = new OSDMap();
             }
         }
-        
-		/// <summary>
-		/// Serializes the message
-		/// </summary>
-		/// <returns>Serialized OSD</returns>
+
+        /// <summary>
+        /// Serializes the message
+        /// </summary>
+        /// <returns>Serialized OSD</returns>
         public OSDMap Serialize()
         {
             return new OSDMap();
         }
     }
-	
+
     public class GetObjectCostRequest : IMessage
     {
         /// <summary> Object IDs for which to request cost information
@@ -4564,9 +4563,9 @@ namespace OpenMetaverse.Messages.Linden
                 return new GetObjectCostMessage();
             }
         }
-    }	
-    
-	#endregion Object Messages
+    }
+
+    #endregion Object Messages
 
     #region Object Media Messages
     /// <summary>
@@ -5289,9 +5288,9 @@ namespace OpenMetaverse.Messages.Linden
         public OSDMap Serialize()
         {
             OSDArray names = new OSDArray(2);
-			names.Add(OldDisplayName);
-			names.Add(NewDisplayName);
-			
+            names.Add(OldDisplayName);
+            names.Add(NewDisplayName);
+
             OSDMap name = new OSDMap();
             name["display_name"] = names;
             return name;

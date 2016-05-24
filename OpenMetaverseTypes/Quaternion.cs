@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2014, openmetaverse.org
+ * Copyright (c) 2006-2016, openmetaverse.co
  * All rights reserved.
  *
  * - Redistribution and use in source and binary forms, with or without
@@ -7,7 +7,7 @@
  *
  * - Redistributions of source code must retain the above copyright notice, this
  *   list of conditions and the following disclaimer.
- * - Neither the name of the openmetaverse.org nor the names
+ * - Neither the name of the openmetaverse.co nor the names
  *   of its contributors may be used to endorse or promote products derived from
  *   this software without specific prior written permission.
  *
@@ -325,23 +325,23 @@ namespace OpenMetaverse
         /// <param name="angle">Angle around the axis, in radians</param>
         public void GetAxisAngle(out Vector3 axis, out float angle)
         {
-        	Quaternion q = Normalize(this);
+            Quaternion q = Normalize(this);
 
             float sin = (float)Math.Sqrt(1.0f - q.W * q.W);
             if (sin >= 0.001)
             {
-            	float invSin = 1.0f / sin;
-            	if (q.W < 0) invSin = -invSin;
-            	axis = new Vector3(q.X, q.Y, q.Z) * invSin;
-            	
-            	angle = 2.0f * (float)Math.Acos(q.W);
-            	if (angle > Math.PI)
-            		angle = 2.0f * (float)Math.PI - angle;
+                float invSin = 1.0f / sin;
+                if (q.W < 0) invSin = -invSin;
+                axis = new Vector3(q.X, q.Y, q.Z) * invSin;
+
+                angle = 2.0f * (float)Math.Acos(q.W);
+                if (angle > Math.PI)
+                    angle = 2.0f * (float)Math.PI - angle;
             }
             else
             {
-            	axis = Vector3.UnitX;
-            	angle = 0f;
+                axis = Vector3.UnitX;
+                angle = 0f;
             }
         }
 
@@ -489,7 +489,7 @@ namespace OpenMetaverse
 
         public static Quaternion Divide(Quaternion q1, Quaternion q2)
         {
-        	return Quaternion.Inverse(q1) * q2;
+            return Quaternion.Inverse(q1) * q2;
         }
 
         public static float Dot(Quaternion q1, Quaternion q2)

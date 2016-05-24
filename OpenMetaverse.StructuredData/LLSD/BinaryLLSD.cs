@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2014, openmetaverse.org
+ * Copyright (c) 2006-2016, openmetaverse.co
  * All rights reserved.
  *
  * - Redistribution and use in source and binary forms, with or without
@@ -7,7 +7,7 @@
  *
  * - Redistributions of source code must retain the above copyright notice, this
  *   list of conditions and the following disclaimer.
- * - Neither the name of the openmetaverse.org nor the names
+ * - Neither the name of the openmetaverse.co nor the names
  *   of its contributors may be used to endorse or promote products derived from
  *   this software without specific prior written permission.
  *
@@ -319,8 +319,11 @@ namespace OpenMetaverse.StructuredData
                 case mapBeginBinaryMarker:
                     osd = ParseLLSDBinaryMap(stream);
                     break;
-                default:
-                    throw new OSDException("Binary LLSD parsing: Unknown type marker.");
+            default:
+//                    throw new OSDException("Binary LLSD parsing: Unknown type marker.");
+                Console.WriteLine ("Binary LLSD parsing: Unknown type marker: " + marker);
+                osd = null;
+                break;
 
             }
             return osd;

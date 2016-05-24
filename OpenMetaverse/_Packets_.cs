@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2014, openmetaverse.org
+ * Copyright (c) 2006-2016, openmetaverse.co
  * All rights reserved.
  *
  * - Redistribution and use in source and binary forms, with or without
@@ -4319,7 +4319,7 @@ namespace OpenMetaverse.Packets
                 i = QueryRepliesStart;
                 while (fixedLength + variableLength + acksLength < Packet.MTU && i < QueryReplies.Length) {
                     int blockLength = QueryReplies[i].Length;
-                    if (fixedLength + variableLength + blockLength + acksLength <= MTU || 1 == QueryRepliesStart) {
+                    if (fixedLength + variableLength + blockLength + acksLength <= MTU || i == QueryRepliesStart) {
                         variableLength += blockLength;
                         ++QueryRepliesCount;
                     }
@@ -27349,12 +27349,6 @@ namespace OpenMetaverse.Packets
         {
             public Vector3 HoverHeight;
 
-            public AppearanceHoverBlock() { }
-            public AppearanceHoverBlock(byte[] bytes, ref int i)
-            {
-                FromBytes(bytes, ref i);
-            }
-
             public override int Length
             {
                 get
@@ -27362,12 +27356,18 @@ namespace OpenMetaverse.Packets
                     return 12;
                 }
             }
+            
+            public AppearanceHoverBlock() { }
+            public AppearanceHoverBlock(byte[] bytes, ref int i)
+            {
+                FromBytes(bytes, ref i);
+            }
 
             public override void FromBytes(byte[] bytes, ref int i)
             {
                 try
                 {
-                    HoverHeight.FromBytes(bytes, i);// i += 12;
+                    HoverHeight.FromBytes(bytes, i); i += 12;
                 }
                 catch (Exception)
                 {
@@ -27377,7 +27377,7 @@ namespace OpenMetaverse.Packets
 
             public override void ToBytes(byte[] bytes, ref int i)
             {
-                HoverHeight.ToBytes(bytes, i);
+                HoverHeight.ToBytes(bytes, i); i += 12;
             }
         }
 
@@ -32349,7 +32349,7 @@ namespace OpenMetaverse.Packets
 
         }
 
-		/// <exclude/>
+        /// <exclude/>
         public sealed class ExperienceBlock : PacketBlock
         {
             public UUID ExperienceID;

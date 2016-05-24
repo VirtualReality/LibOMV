@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright (c) 2006-2014, openmetaverse.org
+ * Copyright (c) 2006-2016, openmetaverse.co
  * All rights reserved.
  *
  * - Redistribution and use in source and binary forms, with or without 
@@ -7,7 +7,7 @@
  *
  * - Redistributions of source code must retain the above copyright notice, this
  *   list of conditions and the following disclaimer.
- * - Neither the name of the openmetaverse.org nor the names 
+ * - Neither the name of the openmetaverse.co nor the names 
  *   of its contributors may be used to endorse or promote products derived from
  *   this software without specific prior written permission.
  *
@@ -100,7 +100,7 @@ namespace OpenMetaverse.Messages
                 case "ObjectPhysicsProperties": message = new ObjectPhysicsPropertiesMessage(); break;
                 case "BulkUpdateInventory": message = new BulkUpdateInventoryMessage(); break;
                 case "RenderMaterials": message = new RenderMaterialsMessage(); break;
-				case "GetObjectCost": message = GetObjectCostMessage.GetMessageHandler(map); break;
+                case "GetObjectCost": message = GetObjectCostMessage.GetMessageHandler(map); break;
 
                 // Capabilities TODO:
                 // DispatchRegionInfo
